@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+frontend/.next/
+venv/
+
+# Model weights (download on demand)
+*.pt
+
+# Large video/data files
+raw_footage.mp4
+output/processed_video.mp4
+output/frame_data.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug artifacts
+check_*/
+debug_*/
+analysis_frames/
+compare_frames/
+output_v*/
+frame_*.png
+
+# Python
+__pycache__/
+*.pyc

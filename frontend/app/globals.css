@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  /* Warm amber palette — headlamp color temperature */
+  --amber-50: oklch(97% 0.02 75);
+  --amber-100: oklch(93% 0.04 75);
+  --amber-200: oklch(85% 0.08 70);
+  --amber-300: oklch(75% 0.12 65);
+  --amber-400: oklch(68% 0.15 60);
+  --amber-500: oklch(60% 0.14 55);
+
+  /* Warm-tinted darks — not pure black */
+  --surface-deep: oklch(10% 0.01 60);
+  --surface-base: oklch(14% 0.01 60);
+  --surface-raised: oklch(18% 0.012 60);
+  --surface-hover: oklch(22% 0.012 60);
+
+  /* Warm-tinted text */
+  --text-primary: oklch(92% 0.01 70);
+  --text-secondary: oklch(62% 0.015 65);
+  --text-muted: oklch(42% 0.01 60);
+
+  /* Functional */
+  --danger: oklch(62% 0.2 25);
+  --safe: oklch(70% 0.14 145);
+  --info: oklch(65% 0.1 240);
+
+  /* Spacing rhythm — 6px base */
+  --space-1: 6px;
+  --space-2: 12px;
+  --space-3: 18px;
+  --space-4: 24px;
+  --space-6: 36px;
+  --space-8: 48px;
+  --space-12: 72px;
+
+  /* Easing */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-display: var(--font-instrument), sans-serif;
+}
+
+body {
+  background: var(--surface-deep);
+  color: var(--text-primary);
+  font-family: var(--font-dm-sans), sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar — minimal */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface-hover); border-radius: 2px; }
+
+/* Video controls override — subtle */
+video::-webkit-media-controls-panel {
+  background: linear-gradient(transparent, oklch(10% 0.01 60 / 0.85));
+}
+
+/* Segment pulse for hazard */
+@keyframes hazard-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Staggered entrance */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: slide-up 500ms var(--ease-out-expo) both;
+}
